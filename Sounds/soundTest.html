@@ -1,0 +1,44 @@
+<html>
+<head>
+	<title>Sounds</title>
+</head>
+<body>
+<script src="howler.min.js"></script>
+<script>
+   var bg = new Howl({
+		src: ['OffLimits.wav'],
+		loop:true,
+		volume:0.5
+   });
+   
+   var gun = new Howl({
+		src: ['rifle1.wav']
+   });
+   
+   var bgCheer = new Howl({
+		src: ['crowd.mp3'],
+		loop:true,
+		volume:0.1
+   });
+   
+    var cheer = new Howl({
+		src: ['1manCheer.mp3']
+   });
+   
+   bg.play();
+   bgCheer.play();
+   
+   function shootSound(){
+		gun.play();
+   }
+   
+    function myCheer(){
+		cheer.play();
+   }
+</script>
+
+<input type="button" value="Click me!" onClick="shootSound()"/>
+<input type="button" value="Cheer!" onClick="myCheer()"/>
+
+</body>
+</html>
