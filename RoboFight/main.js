@@ -70,29 +70,34 @@ var energyVal2 = document.getElementById("robo2energy");
 var energyProgress1 = document.getElementById("energyProgressBar1");
 var energyProgress2 = document.getElementById("energyProgressBar2");
 
-LoadPictures(
-    ["img/Battery1_reverse.png",
-    "img/Battery1.png",
-    "img/Battery2.png",
-    "img/Battery2_reverse.png",
-    "img/Battery3_reverse.png",
-    "img/Battery3.png",
-    "img/GunBase_reverse.png",
-    "img/GunBase.png",
-    "img/Robot1_reverse.png",
-    "img/Robot1.png",
-    "img/Scope_reverse.png",
-    "img/Scope.png",
-    "img/Spikes_reverse.png",
-    "img/Spikes.png",
-    "img/Stability2_reverse.png",
-    "img/Stability2.png",
-    "img/Stability3_reverse.png",
-    "img/Stability3.png",
-    "img/TurnArrow.png",
-    "img/MuzzleFlash.png",
-    "img/MuzzleFlash_reverse.png"
-    ],setup);
+function StartGame()
+{
+    obj("startButton").style.display = "none";
+
+    LoadPictures(
+        ["img/Battery1_reverse.png",
+        "img/Battery1.png",
+        "img/Battery2.png",
+        "img/Battery2_reverse.png",
+        "img/Battery3_reverse.png",
+        "img/Battery3.png",
+        "img/GunBase_reverse.png",
+        "img/GunBase.png",
+        "img/Robot1_reverse.png",
+        "img/Robot1.png",
+        "img/Scope_reverse.png",
+        "img/Scope.png",
+        "img/Spikes_reverse.png",
+        "img/Spikes.png",
+        "img/Stability2_reverse.png",
+        "img/Stability2.png",
+        "img/Stability3_reverse.png",
+        "img/Stability3.png",
+        "img/TurnArrow.png",
+        "img/MuzzleFlash.png",
+        "img/MuzzleFlash_reverse.png"
+        ],setup);
+};
 
 function setup()
 {
