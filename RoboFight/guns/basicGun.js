@@ -42,30 +42,38 @@ function BasicGun(robotID)
             reduction *= 1.5;
         }
         this.bugCount["accuracy"] = max+1;
-        this.accuracy -= reduction;
-    }
-/*
-    this.AddAccuracy = function(val)
-    {
-        this.accuracy += val;
-        obj("robo"+this.roboID+"accuracy").innerHTML = this.accuracy.toString();
+        this.accuracy -= reduction*robots[this.roboID].bugMultiplier;
+        if(this.accuracy < 0){this.accuracy = 0;}
+        ChangeUIStat("robo"+this.roboID+"accuracy",Math.round(this.accuracy).toString(), false);
     }
 
-    this.AddDmg = function(val)
+    this.AddCritBug = function()
     {
-        this.dmg += val;
-        obj("robo"+this.roboID+"dmg").innerHTML = this.dmg.toString();
+        var reduction = 1;
+        var i=0;
+        var max = this.bugCount["crit"];
+        for(i=1;i<max; i++)
+        {
+            reduction *= 2;
+        }
+        this.bugCount["crit"] = max+1;
+        this.critChance -= reduction*robots[this.roboID].bugMultiplier;
+        if(this.critChance < 0){this.critChance = 0;}
+        ChangeUIStat("robo"+this.roboID+"crit", Math.round(this.critChance).toString(), false);
     }
 
-    this.AddCrit = function(val)
+    this.AddDmgBug = function()
     {
-        this.dmg += val;
-        obj("robo"+this.roboID+"crit").innerHTML = this.critChance.toString();
+        var reduction = 5;
+        var i=0;
+        var max = this.bugCount["dmg"];
+        for(i=1;i<max; i++)
+        {
+            reduction *= 1.7;
+        }
+        this.bugCount["dmg"] = max+1;
+        this.dmg -= reduction*robots[this.roboID].bugMultiplier;
+        if(this.dmg < 0){this.dmg = 0;}
+        ChangeUIStat("robo"+this.roboID+"dmg",Math.round(this.dmg).toString(), false);
     }
-
-    this.AddDmgPercent = function(val)
-    {
-        this.dmg += Math.ceil(1.0*this.dmg*(1.0+val));
-    }
-    */
 }

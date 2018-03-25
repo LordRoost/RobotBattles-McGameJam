@@ -51,3 +51,39 @@ function PayForCard(roboID, cost)
         return false;
     }
 }
+
+var previousUpgrades = [];
+var previousDowngrades = [];
+function ChangeUIStat(objID, innerText, isGood)
+{
+    previousChanged = obj(objID);
+    previousChanged.innerHTML = innerText;
+
+    if(isGood)
+    {
+        previousChanged.classList.add("upgrade");
+        previousUpgrades.push(previousChanged);
+    }
+    else
+    {
+        previousChanged.classList.add("downgrade");
+        previousDowngrades.push(previousChanged);
+    }
+}
+
+function RemoveUICues()
+{
+    var i=0;
+    for(i=0;i<previousUpgrades.length;i++)
+    {
+        previousUpgrades[i].classList.remove("upgrade");
+    }
+
+    for(i=0;i<previousDowngrades.length;i++)
+    {
+        previousDowngrades[i].classList.remove("downgrade");
+    }
+
+    previousUpgrades = [];
+    previousDowngrades = [];
+}
