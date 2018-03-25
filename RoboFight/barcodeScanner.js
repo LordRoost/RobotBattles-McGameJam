@@ -52,7 +52,7 @@ var barcodes = {
     },
 
     23456: {
-        cost: 0,
+        cost: 400,
         action: function()
         {
             //robots[turnControl.currentTurn].energyRegen += 2;
