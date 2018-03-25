@@ -72,4 +72,23 @@ function Bastion()
         energyVal1.innerHTML = Math.floor(this.energy).toString();
         energyProgress1.style.width = Math.floor(100.0*this.energy/roboInitialMaxEnergy);
     }
+
+    this.NextEnergyLevel = function()
+    {
+        this.energyRegen += 2
+        if(this.energyRegen >= 6)
+        {
+            battery2.SetVisibility(false);
+            battery3.SetVisibility(true);
+        }
+        else if(this.energyRegen >= 4)
+        {
+            battery1.SetVisibility(false);
+            battery2.SetVisibility(true);
+        }
+        else if(this.energyRegen >= 2)
+        {
+            battery1.SetVisibility(true);
+        }
+    }
 }

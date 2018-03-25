@@ -52,10 +52,12 @@ var barcodes = {
     },
 
     23456: {
-        cost: 400,
+        cost: 0,
         action: function()
         {
-            robots[turnControl.currentTurn].energyRegen += 2;
+            //robots[turnControl.currentTurn].energyRegen += 2;
+            robots[turnControl.currentTurn].NextEnergyLevel();
+            gearUpSounds();
         }
     },
 

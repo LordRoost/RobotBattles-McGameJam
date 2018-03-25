@@ -72,4 +72,23 @@ function Orisa()
         energyVal2.innerHTML = Math.floor(this.energy).toString();
         energyProgress2.style.width = Math.floor(100.0*this.energy/roboInitialMaxEnergy);
     }
+
+    this.NextEnergyLevel = function()
+    {
+        this.energyRegen += 2
+        if(this.energyRegen >= 6)
+        {
+            battery2Reverse.SetVisibility(false);
+            battery3Reverse.SetVisibility(true);
+        }
+        else if(this.energyRegen >= 4)
+        {
+            //battery1Reverse.SetVisibility(false);
+            battery2Reverse.SetVisibility(true);
+        }
+        else if(this.energyRegen >= 2)
+        {
+            //battery1Reverse.SetVisibility(true);
+        }
+    }
 }
