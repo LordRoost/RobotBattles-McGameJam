@@ -30,9 +30,9 @@ function TurnControl()
                 //make the robo fire
                 turnArrow.SetPositionX(turnArrowXPositions[this.currentTurn-1]);
                 robots[this.currentTurn].Fire();
-
-                this.muzzleFlash.StartFire(this.currentTurn);
             }
+
+            robots[this.currentTurn].UpdateEnergy();
 
             this.muzzleFlash.Update();
         }

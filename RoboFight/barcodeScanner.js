@@ -27,7 +27,7 @@ var barcodes = {
     },
 
     34567: {
-        cost: 0,
+        cost: 1000,
         action: function()
         {
             robots[turnControl.currentTurn].AddBootsLevel();
@@ -35,10 +35,44 @@ var barcodes = {
     },
 
     6789: {
-        cost: 0,
+        cost: 800,
         action: function()
         {
             robots[(turnControl.currentTurn % 2)+1].RemoveBootsLevel();
+        }
+    },
+
+    890: {
+        cost: 500,
+        action: function()
+        {
+            robots[turnControl.currentTurn].gun = new LazerGun(turnControl.currentTurn);
+            gearUpSounds();
+        }
+    },
+
+    23456: {
+        cost: 400,
+        action: function()
+        {
+            robots[turnControl.currentTurn].energyRegen += 2;
+        }
+    },
+
+    901: {
+        cost: 700,
+        action: function()
+        {
+            AddRandomBug((turnControl.currentTurn % 2)+1);
+        }
+    },
+
+    12345: {
+        cost: 100,
+        action : function()
+        {
+            robots[turnControl.currentTurn].gun = new BasicGun(turnControl.currentTurn);
+            gearUpSounds();
         }
     }
 }

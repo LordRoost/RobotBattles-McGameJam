@@ -59,4 +59,17 @@ function Orisa()
             this.bootsLevel--;
         }
     }
+
+    this.UpdateEnergy = function()
+    {
+        var increase = this.energyRegen + this.gun.energyGain;
+        this.energy += increase*ps.deltaTime;
+        this.EnergyUI();
+    }
+
+    this.EnergyUI = function()
+    {
+        energyVal2.innerHTML = Math.floor(this.energy).toString();
+        energyProgress2.style.width = Math.floor(100.0*this.energy/roboInitialMaxEnergy);
+    }
 }

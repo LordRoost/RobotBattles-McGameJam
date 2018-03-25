@@ -1,11 +1,11 @@
-function BasicGun(robotID)
+function LazerGun(robotID)
 {
-    this.accuracy = 85;
-    this.critChance = 1;
-    this.dmg = 100;
-    this.energyUsage = 0;
+    this.accuracy = 80;
+    this.critChance = 20;
+    this.dmg = 300;
+    this.energyUsage = 10;
     this.roboID = robotID;
-    this.energyGain = 0;
+    this.energyGain = 2;
 
     this.bugCount = {
         accuracy: 0,

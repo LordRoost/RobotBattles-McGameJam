@@ -65,6 +65,11 @@ var sound_singleCheer = new Howl({
     src: ['sound/1manCheer.mp3']
 });
 
+var energyVal1 = document.getElementById("robo1energy");
+var energyVal2 = document.getElementById("robo2energy");
+var energyProgress1 = document.getElementById("energyProgressBar1");
+var energyProgress2 = document.getElementById("energyProgressBar2");
+
 LoadPictures(
     ["img/Battery1_reverse.png",
     "img/Battery1.png",
