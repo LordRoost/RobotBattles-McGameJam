@@ -10,3 +10,8 @@ https://i.ytimg.com/vi/8MDWYZCFRO4/maxresdefault.jpg
 
 broken gun pic: http://3.bp.blogspot.com/_1nnSCP6uht8/TPgMNo7OktI/AAAAAAAAAYo/e4TEqCxQTtI/s1600/Broken%2BGun.jpg
 boots: http://image.sportsmansguide.com/adimgs/l/2/282502_ts.jpg
+energyIcon: https://upload.wikimedia.org/wikipedia/commons/d/d7/ScrewAttack_blue_bolt.png
+bulletonfire: http://files.gamebanana.com/img/ico/sprays/53ff38ae114a6.png
+gun: http://www.clipartlord.com/wp-content/uploads/2015/10/pistol6.png
+crit: http://oi23.tinypic.com/zmh1zo.jpg
+raygun: http://img11.deviantart.net/9e3d/i/2012/023/3/c/ray_gun_render_by_d7mey-d4nehsi.png
