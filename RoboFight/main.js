@@ -10,6 +10,7 @@ var orisa = new Orisa();
 var turnControl = new TurnControl();
 
 var robots = [null,bastion, orisa];
+var money = [null,100,100];
 
 var battery1;
 var battery2;
@@ -35,7 +36,34 @@ var turnArrow;
 var robot1Parts;
 var robot2Parts;
 
+var muzzleFlash1;
+var muzzleFlash2;
+
 var gameOver = false;
+
+var sound_bg = new Howl({
+    src: ['sound/OffLimits.wav'],
+    loop:true,
+    volume:0.5
+});
+
+var sound_rifle1 = new Howl({
+    src: ['sound/rifle1.wav']
+});
+
+var sound_rifle2 = new Howl({
+    src: ['sound/rifle1.wav']
+});
+
+var sound_bgCheer = new Howl({
+    src: ['sound/crowd.mp3'],
+    loop:true,
+    volume:0.1
+});
+
+var sound_singleCheer = new Howl({
+    src: ['sound/1manCheer.mp3']
+});
 
 LoadPictures(
     ["img/Battery1_reverse.png",
@@ -56,7 +84,9 @@ LoadPictures(
     "img/Stability2.png",
     "img/Stability3_reverse.png",
     "img/Stability3.png",
-    "img/TurnArrow.png"
+    "img/TurnArrow.png",
+    "img/MuzzleFlash.png",
+    "img/MuzzleFlash_reverse.png"
     ],setup);
 
 function setup()
@@ -65,6 +95,15 @@ function setup()
     battery1.SetVisibility(false);
     battery1.SetPosition(0,0);
     battery1.AddToPixi(ps);
+
+    muzzleFlash1 = new Sprite("img/MuzzleFlash.png");
+    muzzleFlash2 = new Sprite("img/MuzzleFlash_reverse.png");
+    muzzleFlash1.SetPosition(490,423);
+    muzzleFlash2.SetPosition(710,423);
+    muzzleFlash1.SetVisibility(false);
+    muzzleFlash2.SetVisibility(false);
+    muzzleFlash1.AddToPixi(ps);
+    muzzleFlash2.AddToPixi(ps);
 
     //make sprites  = new Sprite();
     battery1 = new Sprite("img/Battery1.png");
@@ -112,7 +151,14 @@ function setup()
     robot1Reverse.SetVisibility(true);
     gunBaseReverse.SetVisibility(true);
 
+    sound_bg.play();
+    sound_bgCheer.play();
+
     ps.UpdateDeltaTime();
+
+    bastion.Fire();
+    turnControl.muzzleFlash.StartFire(1);
+
     GameLoop();
 }
 

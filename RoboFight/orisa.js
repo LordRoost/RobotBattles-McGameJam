@@ -11,6 +11,8 @@ function Orisa()
     {
         var dmgDealt = this.gun.Fire(2);
 
+        PayForCard(2,-1*dmgDealt);
+
         dealDmgToRobot(dmgDealt,1);
     }
 }

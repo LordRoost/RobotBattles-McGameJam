@@ -5,7 +5,7 @@ function TurnControl()
     this.currentTurn = 1;
     this.scanningState = false;
 
-    this.addons = new Addons();
+    this.muzzleFlash = new MuzzleFlash();
 
     this.arrowAnimationTime = 0;
 
@@ -16,6 +16,7 @@ function TurnControl()
         {
             this.arrowAnimationTime -= 1;
         }
+
         turnArrow.SetPositionY(turnArrowYposition + turnArrowYdisplacement*this.arrowAnimationTime);
 
         if(!this.scanningState)
@@ -29,11 +30,13 @@ function TurnControl()
                 //make the robo fire
                 turnArrow.SetPositionX(turnArrowXPositions[this.currentTurn-1]);
                 robots[this.currentTurn].Fire();
+
+                this.muzzleFlash.StartFire(this.currentTurn);
             }
+
+            this.muzzleFlash.Update();
         }
 
         keyboard.Update();
-
-        this.addons.Update();
     }
 }

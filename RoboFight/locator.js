@@ -209,11 +209,7 @@ $(function() {
 
     Quagga.onDetected(function(result) {
         var code = result.codeResult.code;
-
-        if (App.lastResult !== code) {
-            App.lastResult = code;
-            parent.onBarcodeScan(code);
-        }
+        parent.onBarcodeScan(code);
     });
 
 });

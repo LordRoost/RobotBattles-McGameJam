@@ -6,6 +6,12 @@ function BasicGun(robotID)
     this.energyUsage = 0;
     this.roboID = robotID;
 
+    this.bugCount = {
+        accuracy: 0,
+        dmg: 0,
+        crit: 0
+    }
+
     SetupGun(robotID, this);
 
     this.Fire = function()
@@ -19,11 +25,24 @@ function BasicGun(robotID)
         if(Math.random()*100 <= this.critChance)
         {
             dmgDealt *= 2;
+            sound_singleCheer.stop();
+            sound_singleCheer.play();
         }
 
-        new MuzzleFlash(this.roboID);
-
         return dmgDealt;
+    }
+
+    this.AddAccuracyBug = function()
+    {
+        var reduction = 5;
+        var i=0;
+        var max = this.bugCount["accuracy"];
+        for(i=1;i<max; i++)
+        {
+            reduction *= 1.5;
+        }
+        this.bugCount["accuracy"] = max+1;
+        this.accuracy -= reduction;
     }
 /*
     this.AddAccuracy = function(val)

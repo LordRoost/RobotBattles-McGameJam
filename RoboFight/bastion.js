@@ -11,6 +11,8 @@ function Bastion()
     {
         var dmgDealt = this.gun.Fire(1);
 
+        PayForCard(1,-1*dmgDealt);
+
         dealDmgToRobot(dmgDealt,2);
     }
 }

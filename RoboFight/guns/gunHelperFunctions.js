@@ -19,7 +19,7 @@ function gun_AddDmg(gun, val)
 
 function gun_AddCrit(gun, val)
 {
-    gun.dmg += val;
+    gun.critChance += val;
     obj("robo"+gun.roboID+"crit").innerHTML = gun.critChance.toString();
 }
 

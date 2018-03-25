@@ -9,20 +9,21 @@
         <!-- Modal content -->
         <div class="modal-content">
             <span id="closeModalX" class="close">&times;</span>
+            <div id="needMoreGoldDiv" class="needMoreGoldDiv"><h1>You Need More Gold!</h1></div>
             <iframe src="barcodeScanner.html" width="100%" height="600px"></iframe>
     </div>
       
       </div>
 
-    <table style="width:100%; height:100%">
+    <table class="bgTable">
     <tr>
         <td style="width:100%;height:100%;" v-align="center" align="center">
             <div id="pixiDiv"></div>
-            <div>
+            <div class="statsDiv">
                 <table style="width:1280px;">
                     
                         <td align="left"><!-- progress bar 1-->
-                            <b>Hp:</b> <span id="robo1hp">25000</span>
+                            <b>Hp:</b> <span id="robo1hp">4500</span>
                             <div class="hpProgressBar">
                                 <div class="hpProgressBarInner" id="hpProgressBar1"></div>
                             </div>
@@ -31,6 +32,7 @@
                             </div>
                             <div><b>Energy:</b> <span id="robo1energy">25</span></div>
                             <div><b>Charge Speed: </b><span id="robo1charge">0</span></div>
+                            <div><font size="4"><b>Gold:</b><span id="money1">100</span></font></div>
                         </td>
 
                         <td align="center">
@@ -48,7 +50,7 @@
                             </td>
 
                         <td align="right"><!-- progress bar 1-->
-                            <b>Hp:</b> <span id="robo2hp">25000</span>
+                            <b>Hp:</b> <span id="robo2hp">4500</span>
                             <div class="hpProgressBar">
                                 <div class="hpProgressBarInner" id="hpProgressBar2"></div>
                             </div>
@@ -57,6 +59,7 @@
                             </div>
                             <div><b>Energy:</b> <span id="robo2energy">25</span></div>
                             <div><b>Charge Speed: </b><span id="robo2charge">0</span></div>
+                            <div><font size="4"><b>Gold:</b><span id="money2">100</span></font></div>
                         </td>
                         
                     </tr>
@@ -66,6 +69,7 @@
     </tr>
     </table>
 
+<script src="howler.min.js"></script>
 <script src="pixi.min.js"></script>
 <script src="pixiHelper.js"></script>
 <script src="helperFunctions.js"></script>
@@ -76,6 +80,7 @@
 <script src="guns/gunHelperFunctions.js"></script>
 <script src="robotStuff/robotHelperFunction.js"></script>
 
+<script src="bugs.js"></script>
 <script src="guns/muzzleFlash.js"></script>
 <script src="guns/basicGun.js"></script>
 <script src="orisa.js"></script>

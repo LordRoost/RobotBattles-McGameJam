@@ -21,8 +21,8 @@ function LoadPictures(pictureNames,setupFunction)
 function PixiSurface(w,h)
 {
   this.stage = new Container(0x000000,true);
-  //this.renderer = AutoDetectRenderer(w, h, { transparent: true });
-  this.renderer = AutoDetectRenderer(w, h);
+  this.renderer = AutoDetectRenderer(w, h, { transparent: true });
+  //this.renderer = AutoDetectRenderer(w, h);
   this.deltaTime = 0;
   this.deltaTimePrev = Date.now();
   this.stage.hitArea = new PIXI.Rectangle(0,0,w,h);

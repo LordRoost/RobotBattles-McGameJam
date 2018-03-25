@@ -9,8 +9,12 @@ var modal = document.getElementById('myModal');
 // Get the <span> element that closes the modal
 var span = obj("closeModalX");
 
+var needMoreGoldDiv = obj("needMoreGoldDiv");
+
 function ShowModal()
 {
+    needMoreGoldDiv.style.display = "none";
+    lastBarcodeScan = "";
     modal.style.display = "block";
     turnControl.scanningState = true;
 }
@@ -30,5 +34,20 @@ span.onclick = function() {
 window.onclick = function(event) {
     if (event.target == modal) {
         HideModal();
+    }
+}
+
+function PayForCard(roboID, cost)
+{
+    if(money[roboID] >= cost)
+    {
+        money[roboID] -= cost;
+        obj("money"+roboID).innerHTML = money[roboID].toString();
+        return true;
+    }
+    else
+    {
+        needMoreGoldDiv.style.display = "inline-block";
+        return false;
     }
 }
