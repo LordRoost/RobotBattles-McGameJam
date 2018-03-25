@@ -1,0 +1,129 @@
+<html>
+<body>
+<center>
+<div id="pixiDiv"></div>
+<input type="button" value="increment" onclick="incrementClick()" />
+<input type="button" value="negative" onclick="negativeClick()" />
+</center>
+
+<script src="pixi.min.js"></script>
+<script src="pixiHelper.js"></script>
+<script>
+
+var incrementActive = false;
+var negativeActive = false;
+
+function incrementClick()
+{
+  if(incrementActive)
+  {
+    incrementActive = false;
+    triggers.trigger("removeIncrement","");
+  }
+  else
+  {
+    incrementActive = true;
+    new IncrementClass();
+  }
+}
+
+function negativeClick()
+{
+  if(negativeActive)
+  {
+    negativeActive = false;
+    triggers.trigger("removeNegative","");
+  }
+  else
+  {
+    negativeActive = true;
+    new NegativeClass();
+  }
+}
+
+var ps = new PixiSurface(1280,720);
+ps.SetColor("0x888888");
+ps.Show(document.getElementById("pixiDiv"));
+
+var textValue = 1;
+
+var myText = new Text(textValue.toString(),{fontFamily: 'Arial', color: 'white'});
+myText.SetFontSize("bold 100px Arial");
+myText.SetPosition(10,10); 
+myText.AddToPixi(ps);
+
+
+var addons = new Addons();
+var triggers = new Triggers();
+
+function GameLoop()
+{
+  requestAnimationFrame(GameLoop);
+
+  ps.UpdateDeltaTime();
+
+  textValue = 1;
+
+  addons.Update();
+
+  myText.SetText(textValue.toString());
+
+  ps.Render();
+}
+
+ps.UpdateDeltaTime();
+GameLoop();
+
+///////////////////////////// classes /////////////////////////////
+
+function IncrementClass()
+{
+  this.value = 1;
+
+  this.Update = function()
+  {
+    this.value += ps.deltaTime;
+    textValue = textValue*Math.floor(this.value);
+  }
+
+  this.Trigger_Remove = function(param)
+  {
+    this.Dispose();
+  }
+
+  this.Dispose = function()
+  {
+    addons.RemoveObject(this);
+    triggers.RemoveObject("removeIncrement",this);
+  }
+  
+  addons.AddObject(this);
+  triggers.AddObject("removeIncrement",this,"Trigger_Remove");
+}
+
+function NegativeClass()
+{
+  this.Update = function()
+  {
+    textValue = textValue * -1;
+  }
+
+
+  this.Trigger_Remove = function(param)
+  {
+    this.Dispose();
+  }
+
+  this.Dispose = function()
+  {
+    addons.RemoveObject(this);
+    triggers.RemoveObject("removeNegative",this);
+  }
+  
+  addons.AddObject(this);
+  triggers.AddObject("removeNegative",this,"Trigger_Remove");
+}
+
+</script>
+</body>
+</html>

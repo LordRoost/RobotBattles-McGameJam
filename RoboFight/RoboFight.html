@@ -1,0 +1,92 @@
+<html>
+    <head>
+            <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span id="closeModalX" class="close">&times;</span>
+            <div id="needMoreGoldDiv" class="needMoreGoldDiv"><h1>You Need More Gold!</h1></div>
+            <iframe src="barcodeScanner.html" width="100%" height="600px"></iframe>
+    </div>
+      
+      </div>
+
+    <table class="bgTable">
+    <tr>
+        <td style="width:100%;height:100%;" v-align="center" align="center">
+            <div id="pixiDiv"></div>
+            <div class="statsDiv">
+                <table style="width:1280px;">
+                    
+                        <td align="left"><!-- progress bar 1-->
+                            <b>Hp:</b> <span id="robo1hp">4500</span>
+                            <div class="hpProgressBar">
+                                <div class="hpProgressBarInner" id="hpProgressBar1"></div>
+                            </div>
+                            <div class="energyProgressBar">
+                                <div class="energyProgressBarInner"></div>
+                            </div>
+                            <div><b>Energy:</b> <span id="robo1energy">25</span></div>
+                            <div><b>Charge Speed: </b><span id="robo1charge">0</span></div>
+                            <div><font size="4"><b>Gold:</b><span id="money1">100</span></font></div>
+                        </td>
+
+                        <td align="center">
+                            <div><b>Attack Damage: </b><span id="robo1dmg">0</span></div>
+                            <div><b>Accuracy: </b> <span id="robo1accuracy">100%</span></div>
+                            <div><b>Crit: </b> <span id="robo1crit">0%</span></div>
+                            <div><b>Stability: </b> <span id="robo1stability">1</span></div>
+                        </td>
+
+                        <td align="center">
+                                <div><b>Attack Damage: </b><span id="robo2dmg">0</span></div>
+                                <div><b>Accuracy: </b> <span id="robo2accuracy">100%</span></div>
+                                <div><b>Crit: </b> <span id="robo2crit">0%</span></div>
+                                <div><b>Stability: </b> <span id="robo2stability">1</span></div>
+                            </td>
+
+                        <td align="right"><!-- progress bar 1-->
+                            <b>Hp:</b> <span id="robo2hp">4500</span>
+                            <div class="hpProgressBar">
+                                <div class="hpProgressBarInner" id="hpProgressBar2"></div>
+                            </div>
+                            <div class="energyProgressBar">
+                                <div class="energyProgressBarInner"></div>
+                            </div>
+                            <div><b>Energy:</b> <span id="robo2energy">25</span></div>
+                            <div><b>Charge Speed: </b><span id="robo2charge">0</span></div>
+                            <div><font size="4"><b>Gold:</b><span id="money2">100</span></font></div>
+                        </td>
+                        
+                    </tr>
+                </table>
+            </div>
+        </td>
+    </tr>
+    </table>
+
+<script src="howler.min.js"></script>
+<script src="pixi.min.js"></script>
+<script src="pixiHelper.js"></script>
+<script src="helperFunctions.js"></script>
+<script src="keyboard.js"></script>
+<script src="barcodeScanner.js"></script>
+<script src="gameSettings.js"></script>
+<script src="turnControl.js"></script>
+<script src="guns/gunHelperFunctions.js"></script>
+<script src="robotStuff/robotHelperFunction.js"></script>
+
+<script src="bugs.js"></script>
+<script src="guns/muzzleFlash.js"></script>
+<script src="guns/basicGun.js"></script>
+<script src="orisa.js"></script>
+<script src="bastion.js"></script>
+<script src="main.js"></script>
+<script>
+</script>
+</body>
+</html>
