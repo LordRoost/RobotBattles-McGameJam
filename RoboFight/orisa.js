@@ -4,6 +4,8 @@ function Orisa()
     this.energy = 0;
     this.energyRegen = roboInitialEnergyRegen;
     this.stability = 1;
+    this.bugMultiplier = 1;
+    this.bootsLevel = 0;
 
     this.gun = new BasicGun(2);
 
@@ -14,5 +16,47 @@ function Orisa()
         PayForCard(2,-1*dmgDealt);
 
         dealDmgToRobot(dmgDealt,1);
+    }
+
+    this.AddBootsLevel = function()
+    {
+        if(this.bootsLevel == 1)
+        {
+            stability2Reverse.SetVisibility(false);
+        }
+
+        this.bootsLevel++;
+        if(this.bootsLevel>2){this.bootsLevel = 2;}
+        if(bootsLevel == 1)
+        {
+            this.bugMultiplier = 0.8;
+            stability2Reverse.SetVisibility(true);
+        }
+        else if(this.bootsLevel == 2)
+        {
+            this.bugMultiplier = 0.6;
+            stability3Reverse.SetVisibility(true);
+        }
+
+    }
+
+    this.RemoveBootsLevel = function()
+    {
+        if(this.bootsLevel > 0)
+        {
+            if(this.bootsLevel == 1)
+            {
+                this.bugMultiplier = 1;
+                stability2.SetVisibility(false);
+            }
+            else if(this.bootsLevel == 2)
+            {
+                this.bugMultiplier = 0.8;
+                stability3.SetVisibility(false);
+                stability2.SetVisibility(true);
+            }
+
+            this.bootsLevel--;
+        }
     }
 }

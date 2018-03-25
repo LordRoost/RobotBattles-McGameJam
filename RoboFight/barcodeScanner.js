@@ -4,6 +4,7 @@ var barcodes = {
         action: function()
         {
             gun_AddCrit(robots[turnControl.currentTurn].gun, 8);
+            AddRandomBug(turnControl.currentTurn);
         }
     },
 
@@ -12,6 +13,7 @@ var barcodes = {
         action: function()
         {
             gun_AddAccuracy(robots[turnControl.currentTurn].gun, 5);
+            AddRandomBug(turnControl.currentTurn);
         }
     },
 
@@ -20,6 +22,23 @@ var barcodes = {
         action: function()
         {
             gun_AddDmgPercent(robots[turnControl.currentTurn].gun, 10);
+            AddRandomBug(turnControl.currentTurn);
+        }
+    },
+
+    34567: {
+        cost: 0,
+        action: function()
+        {
+            robots[turnControl.currentTurn].AddBootsLevel();
+        }
+    },
+
+    6789: {
+        cost: 0,
+        action: function()
+        {
+            robots[(turnControl.currentTurn % 2)+1].RemoveBootsLevel();
         }
     }
 }
@@ -39,6 +58,7 @@ function onBarcodeScan(code)
         {
             if(PayForCard(turnControl.currentTurn,barcodes[code1].cost))
             {
+                RemoveUICues();
                 barcodes[code1].action();
                 HideModal();
             }

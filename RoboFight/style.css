@@ -57,6 +57,18 @@
     display: none;
 }
 
+.downgrade {
+    font-size: 1.5em;
+    font-weight: bolder;
+    color: rgb(194, 0, 0);
+}
+
+.upgrade {
+    font-size: 1.5em;
+    font-weight: bolder;
+    color: rgb(1, 177, 10);
+}
+
 
 /* The Modal (background) */
 .modal {
